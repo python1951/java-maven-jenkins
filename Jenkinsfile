@@ -1,4 +1,10 @@
-@Library('jenkins-shared-library')
+#!/bin/env groovy
+//@Library('jenkins-shared-library')
+library identifier:'jenkins-shared-library@master',retriever:modernSCM(
+[$class:'GitSCMSource',
+remote:'https://github.com/python1951/jenkins-shared-library.git',
+credentialsId:'github-creds']
+)
 def gv
 
 pipeline {
@@ -24,7 +30,9 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    buildImage()
+                    buildImage 'qamarha28812//demo-app:jma-2.0'
+                    dockerlogin()
+                    dockerpush 'qamarha28812//demo-app:jma-2.0'
                 }
             }
         }
