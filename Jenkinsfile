@@ -5,7 +5,7 @@ library identifier:'jenkins-shared-library@main',retriever:modernSCM(
 remote:'https://github.com/python1951/jenkins-shared-library.git',
 credentialsId:'github']
 )
-
+def gv
 
 pipeline {
     agent any
