@@ -30,9 +30,9 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    buildImage 'qamarha28812//demo-app:jma-2.0'
+                    buildImage 'qamarha28812/demo-app:jma-2.0'
                     dockerlogin()
-                    dockerpush 'qamarha28812//demo-app:jma-2.0'
+                    dockerpush 'qamarha28812/demo-app:jma-2.0'
                 }
             }
         }
