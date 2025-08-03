@@ -52,7 +52,14 @@ pipeline {
             steps{
                 script{
                 withCredentials(usernamePassword(credentialsId:'github',usernameVariable:'USER',passwordVariable:'PASS')
-                    sh 'git remote set-url origin https://${USER}:${PASS}@github.com/python1951/java-maven-jenkins.git"
+                    sh 'git config --global user.email "jenkins@example.com"'
+                     sh 'git config --global user.name "jenkins"'
+
+
+                    sh "git status"
+                    sh "git branch"
+                    sh "git config --list"
+                    sh "git remote set-url origin https://${USER}:${PASS}@github.com/python1951/java-maven-jenkins.git"
                     sh 'git add .'
                     sh 'git commit -m "jenkins commit"'
                     sh 'git push origin HEAD:test'
