@@ -25,7 +25,7 @@ pipeline {
                         script {
                             sh "mvn build-helper:parse=version versions:set \
                                 -D newVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} versions:commit"
-                            def match = readFile("pom.xml") =~ <version>(.+)</version>
+                            def match = readFile("pom.xml") =~  /<version>(.+)<\/version>/
                             def version = match[0][1]
                             env.IMAGE_NAME = "$version-$BUILD_NUMBER"
 
