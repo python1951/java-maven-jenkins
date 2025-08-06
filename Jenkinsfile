@@ -20,7 +20,7 @@ pipeline {
                 }
             }
         }
-        stage("incrementing version of the script") {
+        stage("incrementing version ") {
                     steps {
                         script {
                             sh "mvn build-helper:parse=version versions:set \
